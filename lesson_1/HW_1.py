@@ -21,8 +21,10 @@ print(','.join(''.join(i if i.isdigit() else ' ' for i in st).split()))
 #greeting = 'Hello, world'
 # записати кожний символ як окремий елемент списку і зробити його заглавним:
 # ['H', 'E', 'L', 'L', 'O', ',', ' ', 'W', 'O', 'R', 'L', 'D']
-greeting = 'Hello, world'
-print([i.upper() for i in greeting])
+def greet():
+    greeting = 'Hello, world'
+    print([i.upper() for i in greeting])
+greet()
 # 2) з диапозону від 0-50 записати тільки не парні числа при цьому піднести їх до квадрату
 # приклад:
 # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, ...]
@@ -52,9 +54,10 @@ def maxList(lt):
 
 maxList([123,334234,1441,-4234])
 # - створити функцію яка повертає найменьше число з ліста
-def minList(lt):
+def minList():
+    lt = [[1232,-365,4237427]]
     return print(min(lt))
-minList([1232,-365,4237427])
+minList()
 # - створити функцію яка приймає ліст чисел та складає значення елементів ліста та повертає його.
 def sumList(lt):
     total = 0
@@ -77,27 +80,59 @@ list = [22, 3,5,2,8,2,-23, 8,23,5]
 #   - знайти мін число
 print(min(list))
 #   - видалити усі дублікати
-list = set(list)
-print(list)
+def duplicate():
+    list = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
+    list = set(list)
+    print(list)
+duplicate()
 #   - замінити кожне 4-те значення на 'X'
 list2 = [22, 3,5,2,8,2,-23, 8,23,5]
-print(['X' if (i+1)% 4 == 0 else val for i,val in enumerate(list2)])
+def swap():
+    list2 = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
+    print(['X' if (i+1)% 4 == 0 else val for i,val in enumerate(list2)])
+swap()
 # 2) вивести на екран пустий квадрат з "*" сторона якого вказана як агрумент функції
-def square(n):
+def square():
+    n = 10
     for i in range(n):
      if i == 0 or i == n - 1:
         print('*' * n)
      else:
          print('*' + ' ' * (n - 2) + ' ' + '*')
 
-square(10)
+square()
 # 3) вывести табличку множення за допомогою цикла while
-i = 1
-while i <= 9:
-    l = 1
-    while l <= 9:
-         mult = i * l
-         l += 1
-         print(mult, end='')
-    i += 1
+def multiply():
+    i = 1
+    while i <= 9:
+        l = 1
+        while l <= 9:
+             mult = i * l
+             l += 1
+             print(f'{mult:3}', end='')
+        i += 1
+        print()
+multiply()
 # 4) переробити це завдання під меню
+while True:
+    print('1. minList')
+    print('2. duplicate')
+    print('3. swap')
+    print('4. square')
+    print('5. multiply')
+    print('6. exit')
+
+    choice = input('Click on num to choose: ')
+
+    if choice == '1':
+        minList()
+    elif choice == '2':
+        duplicate()
+    elif choice == '3':
+        swap()
+    elif choice == '4':
+        square()
+    elif choice == '5':
+        multiply()
+    elif choice == '6':
+        break
