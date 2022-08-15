@@ -3,14 +3,11 @@ def make_decorator():
     count = 1
 
     def launch(func):
-        nonlocal count
-        print(count)
-        count += 1
-
         def inner_launch(*args, **kwargs):
             nonlocal count
-            print(count)
             func(*args, **kwargs)
+            print(count)
+            print('-' * 10)
             count += 1
 
         return inner_launch
@@ -31,13 +28,12 @@ def func2():
     print('func2')
 
 
-func1()
-func1()
-func1()
 func2()
 func1()
 func1()
-
+func2()
+func2()
+func1()
 # вивести послідовність Фібоначі, кількість вказана в знінній,
 #   наприклад: x = 10 -> 1 1 2 3 5 8 13 21 34 55
 #   (число з послідовності - це сума попередніх двох чисел)
